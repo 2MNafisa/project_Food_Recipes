@@ -17,22 +17,21 @@ const auth = getAuth(app);
 
 const submit = document.getElementById('submit');
 submit.addEventListener("click", function (event) {
-    event.preventDefault()
+    event.preventDefault();
 
     const email = document.getElementById('email-input').value;
     const password = document.getElementById('password-input').value;
 
+
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed up 
+            // Signed up
             const user = userCredential.user;
-            alert("Creating Account...")
+            alert("Account created successfully!");
             window.location.href ="grand.html";
         })
         .catch((error) => {
-            const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage)
-            // ..
+            document.getElementById('error-message').innerText = errorMessage;
         });
 });

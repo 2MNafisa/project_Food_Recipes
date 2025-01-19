@@ -1,5 +1,5 @@
 const form = document.getElementById('form');
-const firstname_input = document.getElementById('firstname-input');
+const username_input = document.getElementById('username-input');
 const email_input = document.getElementById('email-input');
 const password_input = document.getElementById('password-input');
 const confirm_password_input = document.getElementById('confirm-password-input');
@@ -8,8 +8,8 @@ const error_message = document.getElementById('error-message');
 form.addEventListener('submit', (e) => {
     let errors = [];
 
-    if (firstname_input) {
-        errors = getSignupFormErrors(firstname_input.value, email_input.value, password_input.value, confirm_password_input.value);
+    if (username_input) {
+        errors = getSignupFormErrors(username_input.value, email_input.value, password_input.value, confirm_password_input.value);
     } else {
         errors = getLoginFormErrors(email_input.value, password_input.value);
     }
@@ -31,16 +31,16 @@ form.addEventListener('submit', (e) => {
     }
 });
 
-function getSignupFormErrors(firstname, email, password, confirmPassword) {
+function getSignupFormErrors(username, email, password, confirmPassword) {
     let errors = [];
     
     const nameRegex = /^[A-Za-z]{2,30}$/; // Only letters, length between 2-30.
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // Valid email format.
     const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/; // At least 8 characters, 1 special character, 1 number, 1 lowercase, 1 uppercase letter.
 
-    if (!nameRegex.test(firstname)) {
-        errors.push('Firstname must contain only letters (2-30 characters).');
-        firstname_input.parentElement.classList.add('incorrect');
+    if (!nameRegex.test(username)) {
+        errors.push('Username must contain only letters (2-30 characters).');
+        username_input.parentElement.classList.add('incorrect');
     }
     if (!emailRegex.test(email)) {
         errors.push('Please enter a valid email address.');
@@ -58,7 +58,7 @@ function getSignupFormErrors(firstname, email, password, confirmPassword) {
     return errors;
 }
 
-const allInputs = [firstname_input, email_input, password_input, confirm_password_input];
+const allInputs = [username_input, email_input, password_input, confirm_password_input];
 allInputs.forEach(input => {
     input.addEventListener('input', () => {
         if (input.parentElement.classList.contains('incorrect')) {

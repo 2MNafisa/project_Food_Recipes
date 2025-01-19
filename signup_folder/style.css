@@ -188,4 +188,6 @@ form div.incorrect input {
 
 #error-message {
     color: #f06272;
+    margin-top: 10px; /* Add some space above the error message */
+    font-weight: bold;
 }

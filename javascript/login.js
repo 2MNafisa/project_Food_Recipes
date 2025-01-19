@@ -16,22 +16,21 @@ const auth = getAuth(app);
 
 const submit = document.getElementById('submit');
 submit.addEventListener("click", function (event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    const username = document.getElementById('username-input').value;
+    const email = document.getElementById('username-input').value;
     const password = document.getElementById('password-input').value;
 
-    signInWithEmailAndPassword(auth, username, password)
+    signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed up 
+            // Signed in
             const user = userCredential.user;
-            alert("Successfully logged in!")
+            alert("Successfully logged in!");
             window.location.href ="grand.html";
         })
         .catch((error) => {
-            const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage)
-            // ..
+            document.getElementById('sms1').innerText = errorMessage;
+
         });
 });
