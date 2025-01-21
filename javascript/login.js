@@ -16,6 +16,7 @@ const auth = getAuth(app);
 
 const submit = document.getElementById('submit');
 submit.addEventListener("click", function (event) {
+    console.log("hello");
     event.preventDefault();
 
     const email = document.getElementById('username-input').value;
@@ -26,7 +27,7 @@ submit.addEventListener("click", function (event) {
             // Signed in
             const user = userCredential.user;
             alert("Successfully logged in!");
-            window.location.href ="grand.html";
+            window.location.href ="http://127.0.0.1:5501/homepage.html";
         })
         .catch((error) => {
             const errorMessage = error.message;
