@@ -18,7 +18,6 @@ const db = firebase.firestore();
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("hello")
     const form = document.getElementById('form');
     const username_input = document.getElementById('username-input');
     const email_input = document.getElementById('email-input');

@@ -16,7 +16,6 @@ const auth = getAuth(app);
 
 const submit = document.getElementById('submit');
 submit.addEventListener("click", function (event) {
-    console.log("hello");
     event.preventDefault();
 
     const email = document.getElementById('username-input').value;
